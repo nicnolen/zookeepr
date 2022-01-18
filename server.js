@@ -54,14 +54,30 @@ function filterByQuery(query, animalsArray) {
   // return the filtered results:
   return filteredResults;
 }
+// Takes in the id and array of animals and returns a single animal object
+function findById(id, animalsArray) {
+  const result = animalsArray.filter(animal => animal.id === id)[0];
+  return result;
+}
 
 // Create a route that the front-end can request data from (note req = request and res = response)
-app.get('/api/animals', (req, res) => {
+app.get('/api/animals/', (req, res) => {
   let results = animals;
   if (req.query) {
     results = filterByQuery(req.query, results);
   }
   res.json(results); // .send() is for short messages, .json() is for longer messages
+});
+
+// Create a GET route to search for one animal
+app.get('/api/animals/:id', (req, res) => {
+  const result = findById(req.params.id, animals);
+  if (result) {
+    res.json(result);
+  } else {
+    // if no results, send a 404 (resource not found)
+    res.send(404);
+  }
 });
 
 // Make the server listen
