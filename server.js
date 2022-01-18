@@ -4,6 +4,9 @@ const { animals } = require('./data/animals');
 // Import Express.js
 const express = require('express');
 
+// Tell our app to yse the environmental variable `process.enb.PORT` that defaults the port to 80 if its not set
+const PORT = process.env.PORT || 3001;
+
 // Instantiate (create) the server
 const app = express();
 
@@ -62,6 +65,6 @@ app.get('/api/animals', (req, res) => {
 });
 
 // Make the server listen
-app.listen(3001, () => {
-  console.log(`API server now on port 3001`);
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}!`);
 });
