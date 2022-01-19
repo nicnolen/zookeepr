@@ -139,6 +139,20 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
+// Create a GET route for animals.js
+app.get('/animals', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+// Create a GET route for zookeepers.js
+app.get('/zookeepers', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+// Make a wildcard route to catch requests for routes that dont exist
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 // Make the server listen
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
