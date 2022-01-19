@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3001;
 // Instantiate (create) the server
 const app = express();
 
+// Instruct the server to make certain files readily available
+app.use(express.static('public'));
 // Parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // Parse incoming JSON data
@@ -130,6 +132,11 @@ app.post('/api/animals', (req, res) => {
     const animal = createNewAnimal(req.body, animals);
     res.json(animal);
   }
+});
+
+// Create a GET route for index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 // Make the server listen
