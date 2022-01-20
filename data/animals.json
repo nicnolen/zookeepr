@@ -180,6 +180,15 @@
         "hungry"
       ],
       "id": "18"
+    },
+    {
+      "name": "Larry",
+      "species": "Lemur",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "19"
     }
   ]
 }
