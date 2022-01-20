@@ -4,7 +4,7 @@
   "description": "A project that takes a local zoo's online catalog and stores it on a server created with express.js.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/nicnolen/zookeepr#readme",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
   }
 }
